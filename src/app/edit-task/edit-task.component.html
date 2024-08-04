@@ -1,0 +1,40 @@
+<div class="edit-task-container">
+    <h2>Edit Task</h2>
+    <form (ngSubmit)="updateTask()">
+        <div class="form-group">
+            <label for="title">Title:</label>
+            <input id="title" [(ngModel)]="task.title" type="text" [disabled]="userType === 1" name="title" required>
+        </div>
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea id="description" [(ngModel)]="task.description" [disabled]="userType === 1" name="description"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="dueDate">Due Date:</label>
+            <input id="dueDate" [(ngModel)]="task.dueDate" name="dueDate" type="date" [disabled]="userType === 1" required>
+        </div>
+        <div class="form-group">
+            <label for="notes">Notes:</label>
+            <textarea id="notes" [(ngModel)]="task.notes" name="notes"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="documents">Upload Documents:</label>
+            <input id="documents" type="file">
+        </div>
+        <div class="form-group">
+            <label for="isCompleted" class="checkbox-label">
+                <input id="isCompleted" [(ngModel)]="task.isCompleted" name="isCompleted" type="checkbox"
+                    class="checkbox-input">
+                <span class="checkbox-custom"></span>
+                Completed
+            </label>
+        </div>
+        <input type="hidden" [(ngModel)]="task.id" name="id">
+        <input type="hidden" [(ngModel)]="task.employeeId" name="employeeId">
+        <input type="hidden" [(ngModel)]="task.teamLeaderId" name="teamLeaderId">
+        <div class="form-buttons">
+            <button type="submit" class="btn-save">Save</button>
+            <a [routerLink]="['/tasks']" class="btn-cancel">Cancel</a>
+        </div>
+    </form>
+</div>

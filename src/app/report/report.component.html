@@ -1,0 +1,37 @@
+<div>
+    <div class="task-header">
+        <h2>Team Task Report</h2>
+        <button class="button-logout" (click)="logout()">Logout</button>
+    </div>
+    <form (ngSubmit)="getTeamTaskReport()">
+        <label for="startDate">Start Date:</label>
+        <input type="date" id="startDate" [(ngModel)]="reportRequest.startDate" name="startDate" required>
+
+        <label for="endDate">End Date:</label>
+        <input type="date" id="endDate" [(ngModel)]="reportRequest.endDate" name="endDate" required>
+
+        <button type="submit">Get Report</button>
+    </form>
+
+    <div *ngIf="taskReports.length > 0">
+        <h3>Report Results</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Team Leader ID</th>
+                    <th>Team Leader Name</th>
+                    <th>Total Tasks</th>
+                    <th>Completed Tasks</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let report of taskReports">
+                    <td>{{ report.teamLeaderId }}</td>
+                    <td>{{ report.teamLeaderName }}</td>
+                    <td>{{ report.totalTasks }}</td>
+                    <td>{{ report.completedTasks }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
