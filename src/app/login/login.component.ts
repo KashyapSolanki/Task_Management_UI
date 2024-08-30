@@ -23,8 +23,10 @@ export class LoginComponent {
       next: (response) => {
         const userType = response.userType;
         const userId = response.userId;
+        const fullName = response.fullName;
         localStorage.setItem('userType', userType);
         localStorage.setItem('userId', userId);
+        localStorage.setItem('fullName', fullName);
         if (userType === 3) {
           this.router.navigate(['/report']);
         } else {

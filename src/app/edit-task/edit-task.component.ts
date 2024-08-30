@@ -3,11 +3,12 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { TaskService } from '../services/task.service';
 import { Task } from '../models/task.model';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-edit-task',
   standalone: true,
-  imports: [RouterModule, FormsModule],
+  imports: [RouterModule, FormsModule, CommonModule],
   templateUrl: './edit-task.component.html',
   styleUrl: './edit-task.component.css'
 })
@@ -84,5 +85,10 @@ export class EditTaskComponent implements OnInit {
     const month = (date.getMonth() + 1).toString().padStart(2, '0');
     const year = date.getFullYear();
     return `${month}/${day}/${year}`;
+  }
+
+  logout(): void {
+    localStorage.clear();
+    this.router.navigate(['']);
   }
 }

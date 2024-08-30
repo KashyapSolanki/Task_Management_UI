@@ -16,6 +16,7 @@ export class TaskListComponent implements OnInit {
   tasks: Task[] = [];
   successMessage: string = '';
   userType: number = 0;
+  fullName: string | null = '';
 
   constructor(
     private taskService: TaskService,
@@ -24,6 +25,7 @@ export class TaskListComponent implements OnInit {
 
   ngOnInit(): void {
     this.userType = parseInt(localStorage.getItem('userType') || '0', 10);
+    this.fullName = localStorage.getItem('fullName');
     this.loadTasks();
   }
 

@@ -91,3 +91,23 @@ form {
 .btn-cancel:hover {
     background-color: #e53935;
 }
+
+.task-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.button-logout {
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.button-logout:hover {
+    background-color: #c9302c;
+}

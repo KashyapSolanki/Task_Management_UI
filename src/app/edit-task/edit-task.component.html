@@ -1,5 +1,8 @@
 <div class="edit-task-container">
-    <h2>Edit Task</h2>
+    <div class="task-header">
+        <h2>Tasks</h2>
+        <button class="button-logout" (click)="logout()">Logout</button>
+    </div>
     <form (ngSubmit)="updateTask()">
         <div class="form-group">
             <label for="title">Title:</label>
